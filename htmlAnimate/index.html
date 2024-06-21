@@ -1,61 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Html Animate</title>
 </head>
+
 <body>
-   <div class="logo"></div>
-   <div class="header">
-    <div class="letters">
-        <div>a</div>
-        <div>r</div>
-        <div>t</div>
-        <div>w</div>
-    </div>
+    <div class="body">
+        <h3>Smoothly change flex direction with GSAP's Flip plugin</h3>
 
-    <div class="letters">
-        <div>0</div>
-        <div>r</div>
-        <div>k</div>
-        <div>s</div>
+        <button id="changeLayout" class="button">change</button>
+        <div class="group">
+          <div class="box">Common "FLIP" techniques employed by other tools won't work with flex elements because of the way browsers handle width/height. 
+          </div>
+          <div class="box">Simply set <code>absolute: true</code> to have GSAP's Flip plugin make the elements position: absolute during the flip to work around challenges with flex and grid layouts. 
+          </div>
+          <div class="box">When the flip animation is done, elements get reverted back to their normal positioning and everything appears seamless.</div>
+          <div class="box">Happy flipping!</div>
+        </div>
+        <a class="gsap-logo" target="_blank" href="gsap.com">
+          <img src="https://assets.codepen.io/16327/gsap-logo-light.svg" alt="" />
+        </a>
     </div>
-   </div>
-
-   <div class="website-content">
-    
-    <div class="img-holder">
-        <img src="./Assets/hero.jpg" alt="hero">
-    </div>
-
-    <div class="content-holder">
-        <div class="row">
-            <h1>History</h1>
+    <!-- <div class="logo"></div>
+    <div class="header">
+        <div class="letters">
+            <div>a</div>
+            <div>r</div>
+            <div>t</div>
+            <div>w</div>
         </div>
 
-        <div class="row">
-            <div class="img">
-                <img src="./Assets/img-1.jpg" alt="">
+        <div class="letters">
+            <div>0</div>
+            <div>r</div>
+            <div>k</div>
+            <div>s</div>
+        </div>
+    </div>
+
+    <div class="website-content">
+
+        <div class="img-holder">
+            <img src="./Assets/hero.jpg" alt="hero">
+        </div>
+
+        <div class="content-holder">
+            <div class="row">
+                <h1>History</h1>
+            </div>
+
+            <div class="row">
+                <div class="img">
+                    <img src="./Assets/img-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="img">
+                    <img src="./Assets/img-2.jpg" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="img">
+                    <img src="./Assets/img-3.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="row">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos aut totam modi tempore nemo
+                    quas, hic ducimus placeat, nesciunt impedit aliquid ipsam. Sed nihil beatae quibusdam neque?
+                    Facilis, facere cupiditate.</p>
+            </div>
+
+            <div class="row">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos aut totam modi tempore nemo
+                    quas, hic ducimus placeat, nesciunt impedit aliquid ipsam. Sed nihil beatae quibusdam neque?
+                    Facilis, facere cupiditate.</p>
             </div>
         </div>
-        <div class="row">
-            <div class="img">
-                <img src="./Assets/img-2.jpg" alt="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="img">
-                <img src="./Assets/img-3.jpg" alt="">
-            </div>
-        </div>
-    </div>
-   </div>
+    </div> -->
 
 
-   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/scrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/scrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(Flip);
+
+const group = document.querySelector(".group");
+
+document.querySelector(".button").addEventListener("click", () => {
+  // Get the initial state
+  const state = Flip.getState(".group, .box");
+  
+  console.log(state);
+  
+  // toggle the flex direction
+  group.classList.toggle("reorder");
+  
+  Flip.from(state, {
+    absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+    duration: 0.5, 
+    stagger: 0.1,
+    ease: "power1.inOut"
+    // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc. 
+  });
+});
+     
+    </script>
 </body>
+
 </html>

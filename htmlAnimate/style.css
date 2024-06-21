@@ -1,0 +1,162 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    overscroll-behavior: none ;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+html, body{
+    font-family: "Neue Montreal";
+    height: 100%;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+/* .box{
+    border-radius: 5px;
+    width:150px;
+    height: 100px;
+    background-color: #194fb4;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* Typography */
+
+@font-face {
+    font-display: block;
+    font-family: Mori;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://assets.codepen.io/16327/PPMori-Regular.woff) format("woff");
+  }
+  
+  @font-face {
+    font-display: block;
+    font-family: Mori;
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://assets.codepen.io/16327/PPMori-SemiBold.woff) format("woff");
+  }
+  
+  @font-face {
+    font-display: block;
+    font-family: Fraktion Mono;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://assets.codepen.io/16327/PPFraktionMono-Bold.woff)
+      format("woff");
+  }
+  
+  :root {
+    --color-shockingly-green: #0ae448;
+    --color-just-black: #0e100f;
+    --color-surface-white: #fffce1;
+    --color-pink: #fec5fb;
+    --color-shockingly-pink: #f100cb;
+    --color-orangey: #ff8709;
+    --color-lilac: #9d95ff;
+    --color-lt-green: #abff84;
+    --color-blue: #00bae2;
+    --color-grey: gray;
+    --color-surface75: #bbbaa6;
+    --color-surface50: #7c7c6f;
+    --color-surface25: #42433d;
+  }
+  
+  body {
+    color: var(--color-surface-white);
+    background-color: var(--color-just-black);
+    font-family: Mori, sans-serif;
+    font-weight: 400;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    text-align: center;
+  }
+  
+  .group.reorder {
+    flex-direction: row;
+  }
+  
+  h1 {
+    font-weight: 400;
+  }
+  
+  .group {
+    width: 740px;
+    height: auto;
+    margin: 1rem auto;
+    padding: 4px;
+   border: solid 2px var(--color-surface-white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: var(--color-just-black);
+    position: relative;
+    border-radius: 10px;
+  }
+  
+  .box {
+    margin: 4px;
+    padding: 8px;
+    line-height: 28px;
+    border-radius: 10px;
+  }
+  .box:nth-child(1) {
+    background-color: var(--color-lilac);
+  }
+  .box:nth-child(2) {
+     background-color: var(--color-blue);
+  }
+  .box:nth-child(3) {
+    background-color: var(--color-orangey);
+  }
+  .box:nth-child(4) {
+     background-color: var(--color-lt-green);
+  }
+  
+  button {
+    margin: 0 auto;
+    display: inline-block;
+    outline: none;
+    padding: 8px 14px;
+    background: var(--dark);
+    border: solid 2px var(--color-surface-white);
+    color: var(--light);
+    text-decoration: none;
+    border-radius: 99px;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 18px;
+  }
+  
+  .gsap-logo {
+    width: 20vw;
+    max-width: 90px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    mix-blend-mode: difference;
+    z-index: 9999;
+  }
+  
+  img {
+    max-width: 100%;
+  }
